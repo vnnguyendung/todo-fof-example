@@ -48,13 +48,13 @@ $this->loadHelper('format');
 		<tr>
 			<td></td>
 			<td>
-				<input type="text" name="search" id="search"
-					value="<?php echo $this->escape($this->getModel()->getState('search',''));?>"
+				<input type="text" name="title" id="title"
+					value="<?php echo $this->escape($this->getModel()->getState('title',''));?>"
 					class="text_area" onchange="document.adminForm.submit();" />
 				<button onclick="this.form.submit();">
 					<?php echo JText::_('JSEARCH_FILTER') ?>
 				</button>
-				<button onclick="document.adminForm.search.value='';this.form.submit();">
+				<button onclick="document.adminForm.title.value='';this.form.submit();">
 					<?php echo JText::_('JSEARCH_RESET') ?>
 				</button>
 			</td>
