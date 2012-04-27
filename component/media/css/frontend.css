@@ -1,0 +1,6 @@
+span.todo-due-overdue { color: red; }
+span.todo-due-closing { color: #a90; }
+span.todo-due-enoughtime { color: green; }
+
+fieldset.todo-item-description { border: thin solid #99f; padding: 10px; }
+fieldset.todo-item-description legend { border: thin solid #99f; background: #009; color: white; font-weight: bold; }
