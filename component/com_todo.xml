@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="component" method="upgrade">
 	<name>Todo</name>
-	<creationDate>2012-04-27</creationDate>
+	<creationDate>2012-05-22</creationDate>
 	<author>Nicholas K. Dionysopoulos</author>
 	<authorEmail>nicholas@akeebabackup.com</authorEmail>
 	<authorUrl>http://www.akeebabackup.com</authorUrl>
 	<copyright>Copyright (c)2012 Nicholas K. Dionysopoulos</copyright>
 	<license>GNU GPL v3 or later</license>
-	<version>1.0</version>
+	<version>rev4F4D842</version>
 	<description>To-do is a demo component for the FOF framework</description>
 
 	<!-- Public front end files -->
@@ -91,14 +91,12 @@
 	</administration>
 
 	<!-- Installation / uninstallation script file -->
-	<!--
 	<scriptfile>script.todo.php</scriptfile>
-	-->
 
 	<!-- Update servers -->
 	<!--
 	<updateservers>
-		<server type="extension" priority="1" name="To-Do"><![CDATA[http://nocdn.akeebabackup.com/updates/todo.xml]]></server>
+		<server type="extension" priority="1" name="To-Do"><![CDATA[http://cdn.akeebabackup.com/updates/todo.xml]]></server>
 	</updateservers>
 	-->
 </extension>
