@@ -13,6 +13,8 @@ class TodoToolbar extends FOFToolbar
 	{
 		parent::onBrowse();
 		
+		$this->clearLinks();
+		
 		JToolBarHelper::divider();
 		JToolBarHelper::preferences('com_todo');
 	}

@@ -118,3 +118,5 @@ $this->loadHelper('format');
 	<?php endif; ?>
 	</tbody>
 </table>
+	
+</form>
