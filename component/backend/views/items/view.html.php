@@ -16,7 +16,7 @@ class TodoViewItems extends FOFViewHtml
 			$this->loadHelper('select');
 			JHtmlSidebar::setAction('index.php?option=com_todo&view=items');
 			JHtmlSidebar::addFilter(
-				JText::_('COM_AKEEBASUBS_COMMON_SELECTSTATE'),
+				JText::_('COM_TODO_SELECTSTATE'),
 				'enabled',
 				JHtml::_('select.options', JHtml::_('jgrid.publishedOptions', array('archived' => 0, 'trash' => 0, 'all' => 0)), 'value', 'text', $this->getModel()->getState('enabled',''), true)
 			);

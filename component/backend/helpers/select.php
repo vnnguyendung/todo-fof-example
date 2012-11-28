@@ -41,7 +41,7 @@ class TodoHelperSelect
 	public static function published($selected = null, $id = 'enabled', $attribs = array())
 	{
 		$options = array();
-		$options[] = JHTML::_('select.option',null,'- '.JText::_('COM_AKEEBASUBS_COMMON_SELECTSTATE').' -');
+		$options[] = JHTML::_('select.option',null,'- '.JText::_('COM_TODO_SELECTSTATE').' -');
 		$options[] = JHTML::_('select.option',0,JText::_((version_compare(JVERSION, '1.6.0', 'ge')?'J':'').'UNPUBLISHED'));
 		$options[] = JHTML::_('select.option',1,JText::_((version_compare(JVERSION, '1.6.0', 'ge')?'J':'').'PUBLISHED'));
 
