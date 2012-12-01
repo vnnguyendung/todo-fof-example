@@ -16,12 +16,6 @@
 	<!-- Where the installation packages will be output -->
 	<property name="dirs.release" value="../release" />
 	
-	<!-- ******************** IMPORTANT: CHANGE THIS ******************** -->
-	<!-- dirs.fof should point to the directory of the working copy of FOF's Git
-	repository. We assume it's one level above, in a subdirectory named
-	"fof". -->
-	<property name="dirs.fof" value="../../fof" />
-
 	<!-- Default version number; please don't touch it, it's a magic value!  -->
 	<property name="version" value="git" />
 
@@ -101,11 +95,6 @@
 		
 		<zipme basedir="${dirs.component}" destfile="${dirs.release}/com_todo-${version}.zip" includeemptydirs="true">
 			<fileset refid="todofiles" />
-		</zipme>
-		<zipme basedir="${dirs.fof}/fof" prefix="fof/" destfile="${dirs.release}/com_todo-${version}.zip" includeemptydirs="true">
-			<fileset dir="${dirs.fof}/fof">
-				<include name="**" />
-			</fileset>
 		</zipme>
 	</target>
 
