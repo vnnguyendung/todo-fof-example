@@ -10,7 +10,7 @@
 			size="50"
 		 />
 		
-		<field name="due" type="calendar"
+		<field name="due" type="duedate"
 			label="COM_TODO_ITEMS_FIELD_DUE"
 			labelclass="todo-field"
 			size="20"
