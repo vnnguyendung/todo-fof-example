@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form
-	cssfiles="media://com_todo/css/backend.css"
+	cssfiles="media://com_todo/css/frontend.css"
 	type="read"
 >
 	<fieldset name="a_single_item" class="todo-item-container form-horizontal">

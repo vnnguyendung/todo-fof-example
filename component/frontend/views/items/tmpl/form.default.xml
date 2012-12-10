@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	cssfiles="media://com_todo/css/frontend.css"
+	type="browse"
+	show_header="1"
+	show_filters="1"
+	show_pagination="1"
+	norows_placeholder="COM_TODO_COMMON_NORECORDS"
+>
+	<headerset>
+		<header name="title" type="fieldsearchable" sortable="false"
+			buttons="false"
+		/>
+		<header name="due" type="field" sortable="false" tdwidth="20%" />
+	</headerset>
+
+	<fieldset name="items">
+		<field name="title" type="text"
+			show_link="true"
+			url="index.php?option=com_todo&amp;view=item&amp;id=[ITEM:ID]"
+			class="todoitem"
+			empty_replacement="(no title)"
+		 />
+
+		<field name="due" type="duedate" />
+	</fieldset>
+</form>
