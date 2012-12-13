@@ -16,7 +16,6 @@
 		<filename>todo.php</filename>
 		
 		<folder>controllers</folder>
-		<folder>models</folder>
 		<folder>views</folder>
 	</files>
 
@@ -67,19 +66,15 @@
 
 		<!-- Back-end files -->
 		<files folder="backend">
+			<folder>fields</folder>
+			<folder>sql</folder>
+			<folder>views</folder>
+
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>
 			<filename>dispatcher.php</filename>
 			<filename>index.html</filename>
 			<filename>todo.php</filename>
-			<filename>toolbar.php</filename>
-
-			<folder>controllers</folder>
-			<folder>helpers</folder>
-			<folder>models</folder>
-			<folder>sql</folder>
-			<folder>tables</folder>
-			<folder>views</folder>
 		</files>
 
 		<!-- Back-end translation files -->
