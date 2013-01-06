@@ -3,3 +3,5 @@ release/*.zip
 /component/com_todo.xml
 component/fof
 component/strapper
+
+.DS_Store
