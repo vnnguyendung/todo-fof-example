@@ -2041,12 +2041,7 @@
       // ----- Missing file
       else {
         // ----- Error log
-		  var_dump(
-			is_file($v_descr['filename']),
-			is_dir($v_descr['filename']),
-			is_link($v_descr['filename']),
-			file_exists($v_descr['filename'])
-		  );
+		  var_dump(is_file($v_descr['filename']), is_dir($v_descr['filename']), is_link($v_descr['filename']), file_exists($v_descr['filename']));
 		  die("MISSING {$v_descr['filename']}\nThis should never happen!\n\n");
         PclZip::privErrorLog(PCLZIP_ERR_MISSING_FILE, "File '".$v_descr['filename']."' does not exist");
         // ----- Return
@@ -2579,7 +2574,7 @@
     // ----- Look for regular file
     if ($p_filedescr['type']=='file') {
       $p_header['external'] = 0x00000000;
-      $p_header['size'] = filesize($p_filename);
+      $p_header['size'] = filesize(realpath($p_filename));
     }
     
     // ----- Look for regular folder
