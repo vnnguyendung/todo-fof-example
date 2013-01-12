@@ -14,6 +14,39 @@ class Com_TodoInstallerScript
 	/** @var string The component's name */
 	protected $_akeeba_extension = 'com_todo';
 	
+	/** @var array Obsolete files and folders to remove */
+	private $akeebaRemoveFiles = array(
+		'files'	=> array(
+			// FOF 1.x files
+			'libraries/fof/controller.php',
+			'libraries/fof/dispatcher.php',
+			'libraries/fof/inflector.php',
+			'libraries/fof/input.php',
+			'libraries/fof/model.php',
+			'libraries/fof/query.abstract.php',
+			'libraries/fof/query.element.php',
+			'libraries/fof/query.mysql.php',
+			'libraries/fof/query.mysqli.php',
+			'libraries/fof/query.sqlazure.php',
+			'libraries/fof/query.sqlsrv.php',
+			'libraries/fof/render.abstract.php',
+			'libraries/fof/render.joomla.php',
+			'libraries/fof/render.joomla3.php',
+			'libraries/fof/render.strapper.php',
+			'libraries/fof/string.utils.php',
+			'libraries/fof/table.php',
+			'libraries/fof/template.utils.php',
+			'libraries/fof/toolbar.php',
+			'libraries/fof/view.csv.php',
+			'libraries/fof/view.html.php',
+			'libraries/fof/view.json.php',
+			'libraries/fof/view.php',
+			
+		),
+		'folders' => array(
+		)
+	);
+
 	/**
 	 * Joomla! pre-flight event
 	 * 
@@ -38,6 +71,10 @@ class Com_TodoInstallerScript
 	 */
 	function postflight( $type, $parent )
 	{
+		// Remove obsolete files and folders
+		$akeebaRemoveFiles = $this->akeebaRemoveFiles;
+		$this->_removeObsoleteFilesAndFolders($akeebaRemoveFiles);
+		
 		// Install FOF if required
 		$fofStatus = $this->_installFOF($parent);
 	}
