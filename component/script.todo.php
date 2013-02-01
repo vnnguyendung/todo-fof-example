@@ -90,6 +90,39 @@ class Com_TodoInstallerScript
 	}
 	
 	/**
+	 * Removes obsolete files and folders
+	 * 
+	 * @param array $akeebaRemoveFiles 
+	 */
+	private function _removeObsoleteFilesAndFolders($akeebaRemoveFiles)
+	{
+		// Remove files
+		jimport('joomla.filesystem.file');
+		if(!empty($akeebaRemoveFiles['files'])) foreach($akeebaRemoveFiles['files'] as $file) {
+			$f = JPATH_ROOT.'/'.$file;
+			if (!file_exists($f))
+			{
+				continue;
+			}
+			if (!@unlink($f))
+			{
+				JFile::delete($f);
+			}
+		}
+
+		// Remove folders
+		jimport('joomla.filesystem.file');
+		if(!empty($akeebaRemoveFiles['folders'])) foreach($akeebaRemoveFiles['folders'] as $folder) {
+			$f = JPATH_ROOT.'/'.$folder;
+			if (!JFolder::exists($f))
+			{
+				continue;
+			}
+			JFolder::delete($f);
+		}
+	}
+	
+	/**
 	 * Installs the FOF framework only if the currently installed version on the
 	 * user's site is out of date or if there is no version already installed.
 	 * 
