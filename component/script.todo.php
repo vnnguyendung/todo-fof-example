@@ -81,12 +81,12 @@ class Com_TodoInstallerScript
 	 */
 	function postflight( $type, $parent )
 	{
+		// Install FOF if required
+		$fofStatus = $this->_installFOF($parent);
+		
 		// Remove obsolete files and folders
 		$akeebaRemoveFiles = $this->akeebaRemoveFiles;
 		$this->_removeObsoleteFilesAndFolders($akeebaRemoveFiles);
-		
-		// Install FOF if required
-		$fofStatus = $this->_installFOF($parent);
 	}
 	
 	/**
