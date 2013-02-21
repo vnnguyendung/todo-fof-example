@@ -6,7 +6,7 @@
 	<authorEmail>nicholas@akeebabackup.com</authorEmail>
 	<authorUrl>http://www.akeebabackup.com</authorUrl>
 	<copyright>Copyright (c)2012 Nicholas K. Dionysopoulos</copyright>
-	<license>GNU GPL v3 or later</license>
+	<license>GNU GPL v2 or later</license>
 	<version>##VERSION##</version>
 	<description>To-do is a demo component for the FOF framework</description>
 
