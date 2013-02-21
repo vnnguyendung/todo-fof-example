@@ -86,7 +86,7 @@
 	</administration>
 
 	<!-- Installation / uninstallation script file -->
-	<scriptfile>script.todo.php</scriptfile>
+	<!--<scriptfile>script.todo.php</scriptfile>-->
 
 	<!-- Update servers -->
 	<!--

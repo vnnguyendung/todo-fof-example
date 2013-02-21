@@ -8,7 +8,7 @@ $symlink_files = array(
 
 $symlink_folders = array(
 	# FOF
-	'../fof/fof'								=> 'component/fof',
+	#'../fof/fof'								=> 'component/fof',
 );
 
 define('IS_WINDOWS', substr(PHP_OS, 0, 3) == 'WIN');
