@@ -18,8 +18,8 @@ http://www.phing.info/trac/wiki/Users/Installation
 
 Now, you will need to check out both the FOF and To-Do projects:
 
-git clone git://git.assembla.com/fof.git
-git clone git://git.assembla.com/to-do-fof.git
+git clone git://github.com/akeeba/fof.git
+git clone git://github.com/akeeba/todo-fof-example.git
 
 Right now the FOF working copy is in the factory default state and FOF can not
 be installed just yet. Let's make sure we get it into an installable state:
@@ -30,11 +30,11 @@ cd ..
 
 And then let's build com_todo itself:
 
-cd to-do-fof/build
+cd todo-fof-example/build
 phing
 cd ..
 
-You will find a com_todo-****.zip file inside the to-do-fof/release directory.
+You will find a com_todo-****.zip file inside the todo-fof-example/release directory.
 Awesome! You can now install it on your Joomla! 2.5 or later web site. Yes,
 com_todo is for Joomla! 2.5+ only even though FOF currently also supports
 Joomla! 1.5. Sorry, but Joomla! 1.5 is practically dead!
