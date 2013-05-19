@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form
 	lessfiles="media://com_todo/css/backend.less||media://com_todo/css/backend.css"
+	validate="true"
 >
 	<fieldset name="basic_configuration"
 		label="COM_TODO_ITEMS_GROUP_BASIC"
