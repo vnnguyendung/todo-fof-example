@@ -3,7 +3,7 @@
 	<frontend>
 		<view name="item">
 			<config>
-				<option name="behaviors">filter,private,enabled</option>
+				<option name="behaviors">filters,private,enabled</option>
 			</config>
 		</view>
 	</frontend>
