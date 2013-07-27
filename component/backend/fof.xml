@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fof>
-    <!-- Currently empty, only used for the autoloader to recognise this component as FOF-powered -->
+	<frontend>
+		<view name="item">
+			<config>
+				<option name="behaviors">filter,private,enabled</option>
+			</config>
+		</view>
+	</frontend>
 </fof>

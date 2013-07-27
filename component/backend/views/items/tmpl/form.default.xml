@@ -13,6 +13,7 @@
 			buttons="yes" buttonclass="btn"
 		/>
 		<header name="due" type="field" sortable="true" tdwidth="12%" />
+		<header name="created_by" type="user" sortable="true" tdwidth="10%" />
 		<header name="ordering" type="ordering" sortable="true" tdwidth="10%" />
 		<header name="enabled" type="published" sortable="true" tdwidth="8%" />
 	</headerset>
@@ -28,6 +29,8 @@
 		 />
 
 		<field name="due" type="duedate" />
+		
+		<field name="created_by" type="user" sortable="true" tdwidth="10%" />
 
 		<field name="ordering" type="ordering" labelclass="order"/>
 
