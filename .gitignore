@@ -6,3 +6,4 @@ component/strapper
 
 .DS_Store
 /component/backend/com_todo.xml
+/.idea/
