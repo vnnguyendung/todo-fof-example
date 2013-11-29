@@ -33,6 +33,7 @@
 			<option value="0">JUNPUBLISHED</option>
 		</field>
 	</fieldset>
+
 	<fieldset name="description_group"
 		label="COM_TODO_ITEMS_GROUP_DESCRIPTION"
 		description="COM_TODO_ITEMS_GROUP_DESCRIPTION_DESC"
@@ -45,4 +46,19 @@
 			filter="JComponentHelper::filterText" buttons="true"
 		/>
 	</fieldset>
+
+  <fieldset name="rules">
+
+    <field name="asset_id" type="hidden" emptylabel="true" filter="unset" />
+
+    <field name="rules"
+            type="rules"
+            emptylabel="true"
+            translate_label="false"
+            filter="rules"
+            validate="rules"
+            class="inputbox"
+            component="com_todo"
+            section="unit" />
+  </fieldset>
 </form>

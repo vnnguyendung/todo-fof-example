@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `#__todo_items` (
   `due` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `enabled` tinyint(3) NOT NULL DEFAULT '1',
   `ordering` int(10) NOT NULL DEFAULT '0',
+  `asset_id` int(10) NOT NULL DEFAULT '0',
   `created_by` bigint(20) NOT NULL DEFAULT '0',
   `created_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified_by` bigint(20) NOT NULL DEFAULT '0',
