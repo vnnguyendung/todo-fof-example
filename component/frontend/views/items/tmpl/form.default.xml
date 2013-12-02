@@ -3,21 +3,20 @@
 	lessfiles="media://com_todo/css/frontend.less||media://com_todo/css/frontend.css"
 	type="browse"
 	show_header="1"
-	show_filters="1"
+	show_filters="0"
 	show_pagination="1"
 	norows_placeholder="COM_TODO_COMMON_NORECORDS"
 >
 	<headerset>
 		<header name="title" type="fieldsearchable" sortable="false"
-			buttons="false"
+			buttons="true"
 		/>
 		<header name="due" type="field" sortable="false" tdwidth="20%" />
 	</headerset>
 
 	<fieldset name="items">
-		<field name="title" type="text"
+		<field name="title" type="frontendlink"
 			show_link="true"
-			url="index.php?option=com_todo&amp;view=item&amp;id=[ITEM:ID]"
 			class="todoitem"
 			empty_replacement="(no title)"
 		 />
