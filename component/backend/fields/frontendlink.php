@@ -28,8 +28,9 @@ class FOFFormFieldFrontendlink extends FOFFormFieldText
         // If I can edit, or I am editing a record of mine (and I can do it) or I have
         // special permissions on that record, display the edit link
         if(
-            (JAccess::check($userid, 'core.edit', 'com_todo'))                               ||
-            ($created_by == $userid && JAccess::check($userid, 'core.edit.own', 'com_todo')) ||
+            (JAccess::check($userid, 'core.edit', 'com_todo'))                                              ||
+            ($created_by == $userid && JAccess::check($userid, 'core.edit.own', 'com_todo'))                ||
+            ($created_by == $userid && JAccess::check($userid, 'core.edit.own', 'com_todo.item.'.$itemid))  ||
             (JAccess::check($userid, 'core.edit', 'com_todo.item.'.$itemid))
         )
         {
