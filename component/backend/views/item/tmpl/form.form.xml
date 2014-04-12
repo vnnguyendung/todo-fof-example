@@ -2,11 +2,12 @@
 <form
 	lessfiles="media://com_todo/css/backend.less||media://com_todo/css/backend.css"
 	validate="true"
+    tabbed="true"
 >
 	<fieldset name="basic_configuration"
 		label="COM_TODO_ITEMS_GROUP_BASIC"
 		description="COM_TODO_ITEMS_GROUP_BASIC_DESC"
-		class="span6"
+		class="tab-pane"
 	>
 		<field name="title" type="text"
 			class="inputbox"
@@ -37,7 +38,7 @@
 	<fieldset name="description_group"
 		label="COM_TODO_ITEMS_GROUP_DESCRIPTION"
 		description="COM_TODO_ITEMS_GROUP_DESCRIPTION_DESC"
-		class="span6"
+		class="tab-pane"
 	>
 		<field name="description" type="editor"
 			label=""
@@ -47,7 +48,7 @@
 		/>
 	</fieldset>
 
-  <fieldset name="rules">
+  <fieldset name="rules" class="sidebar">
 
     <field name="asset_id" type="hidden" emptylabel="true" filter="unset" />
 

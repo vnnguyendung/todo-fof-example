@@ -8,7 +8,7 @@
 // Protect from unauthorized access
 defined('_JEXEC') or die();
 
-class FOFFormFieldFrontendlink extends FOFFormFieldText
+class F0FFormFieldFrontendlink extends F0FFormFieldText
 {
     /**
      * Get the rendering of this field type for a repeatable (grid) display,

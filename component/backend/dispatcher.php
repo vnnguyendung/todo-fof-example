@@ -7,7 +7,7 @@
 
 defined('_JEXEC') or die();
 
-class TodoDispatcher extends FOFDispatcher
+class TodoDispatcher extends F0FDispatcher
 {
 	public $defaultView = 'items';
 }

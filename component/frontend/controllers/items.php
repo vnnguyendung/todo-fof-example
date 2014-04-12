@@ -7,7 +7,7 @@
 
 defined('_JEXEC') or die();
 
-class TodoControllerItems extends FOFController
+class TodoControllerItems extends F0FController
 {
 	/**
 	 * This runs before the browse() method. Return false to prevent executing

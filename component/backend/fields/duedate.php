@@ -14,7 +14,7 @@ defined('_JEXEC') or die();
  *
  * @since       2.0
  */
-class FOFFormFieldDuedate extends FOFFormFieldCalendar
+class F0FFormFieldDuedate extends F0FFormFieldCalendar
 {
 	/**
 	 * Get the rendering of this field type for static display, e.g. in a single

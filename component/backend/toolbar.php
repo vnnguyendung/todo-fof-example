@@ -7,7 +7,7 @@
 
 defined('_JEXEC') or die;
 
-class TodoToolbar extends FOFToolbar
+class TodoToolbar extends F0FToolbar
 {
     public function onItemsBrowse()
     {

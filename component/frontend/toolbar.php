@@ -7,7 +7,7 @@
 
 defined('_JEXEC') or die;
 
-class TodoToolbar extends FOFToolbar
+class TodoToolbar extends F0FToolbar
 {
     function __construct($config = array())
     {

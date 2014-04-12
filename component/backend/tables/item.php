@@ -7,7 +7,7 @@
 
 defined('_JEXEC') or die();
 
-class TodoTableItem extends FOFTable
+class TodoTableItem extends F0FTable
 {
     public function getAssetParentId($table = null, $id = null)
     {
