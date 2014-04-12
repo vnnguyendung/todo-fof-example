@@ -2,12 +2,12 @@
 <form
 	lessfiles="media://com_todo/css/backend.less||media://com_todo/css/backend.css"
 	validate="true"
-    tabbed="true"
+    tabbed="1"
 >
 	<fieldset name="basic_configuration"
 		label="COM_TODO_ITEMS_GROUP_BASIC"
 		description="COM_TODO_ITEMS_GROUP_BASIC_DESC"
-		class="tab-pane"
+		class="tab-pane active"
 	>
 		<field name="title" type="text"
 			class="inputbox"
