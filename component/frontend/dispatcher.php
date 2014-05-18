@@ -9,8 +9,6 @@ defined('_JEXEC') or die();
 
 class TodoDispatcher extends F0FDispatcher
 {
-	public $defaultView = 'items';
-
 	public function onBeforeDispatch()
 	{
 		$result = parent::onBeforeDispatch();
