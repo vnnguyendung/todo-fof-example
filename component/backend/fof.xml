@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fof>
+	<backend>
+		<dispatcher>
+			<option name="defaultView">Items</option>
+		</dispatcher>
+	</backend>
 	<frontend>
 		<view name="item">
 			<config>
