@@ -9,7 +9,7 @@
         >
     <headerset>
         <header name="todo_item_id" type="RowSelect" tdwidth="20"/>
-        <header name="status" type="Published" sortable="true" tdwidth="8%"/>
+        <header name="enabled" type="Published" sortable="true" tdwidth="8%"/>
         <header name="title" type="Searchable" sortable="true"
                 buttons="yes" buttonclass="btn"
                 />
