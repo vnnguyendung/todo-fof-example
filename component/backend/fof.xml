@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fof>
 	<common>
+		<!-- Set the default view in both frontend and backend to "Items" -->
+		<dispatcher>
+			<option name="defaultView">Items</option>
+		</dispatcher>
+		<!-- Enable filters in frontend and backend -->
 		<model name="Items">
 			<behaviors merge="1">Filters</behaviors>
 		</model>
 	</common>
-	<backend>
-		<dispatcher>
-			<option name="defaultView">Items</option>
-		</dispatcher>
-	</backend>
 	<frontend>
+		<!-- In the frontend we also want to only show our own items -->
 		<model name="Items">
-			<behaviors merge="1">Private</behaviors>
+			<behaviors merge="1">Own</behaviors>
 		</model>
 	</frontend>
 </fof>
