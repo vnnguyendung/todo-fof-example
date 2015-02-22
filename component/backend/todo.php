@@ -8,13 +8,11 @@
 defined('_JEXEC') or die();
 
 // Load FOF
-include_once JPATH_LIBRARIES . '/fof3/fof30/include.php';
-
-if (!defined('FOF30_INCLUDED'))
+if (!defined('FOF30_INCLUDED') && !@include_once(JPATH_LIBRARIES . '/fof30/include.php'))
 {
-	throw new RuntimeException('500', 'FOF 3.0 is not installed');
+	throw new RuntimeException('FOF 3.0 is not installed', 500);
 }
 
-\FOF30\Container\Container::getInstance('com_todo', array(
-	'factoryClass' => 'FOF30\\Factory\\MagicSwitchFactory'
+$container = FOF30\Container\Container::getInstance('com_todo', array(
+	'factoryClass' => 'FOF30\\Factory\\MagicSwitchFactory',
 ))->dispatcher->dispatch();

@@ -1,18 +1,18 @@
 <?php
-/*
- * @package todo
- * @copyright Copyright (c)2014 Nicholas K. Dionysopoulos / AkeebaBackup.com
- * @license GNU General Public License version 2 or later
+/**
+ * @package   To-do
+ * @copyright Copyright (c)2013-2015 Nicholas K. Dionysopoulos / AkeebaBackup.com
+ * @license   GNU General Public License version 2 or later
  */
 
 defined('_JEXEC') or die();
 
 // Load FOF
-include_once JPATH_LIBRARIES.'/f0f/include.php';
-if(!defined('F0F_INCLUDED')) {
-	JError::raiseError ('500', 'FOF is not installed');
-	
-	return;
+if (!defined('FOF30_INCLUDED') && !@include_once(JPATH_LIBRARIES . '/fof30/include.php'))
+{
+	throw new RuntimeException('FOF 3.0 is not installed', 500);
 }
 
-F0FDispatcher::getTmpInstance('com_todo')->dispatch();
+$container = FOF30\Container\Container::getInstance('com_todo', array(
+	'factoryClass' => 'FOF30\\Factory\\MagicSwitchFactory',
+))->dispatcher->dispatch();
