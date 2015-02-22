@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fof>
 	<common>
+        <container>
+            <option name="componentNamespace"><![CDATA[Akeeba\Todo]]></option>
+        </container>
 		<!-- Set the default view in both frontend and backend to "Items" -->
 		<dispatcher>
 			<option name="defaultView">Items</option>
