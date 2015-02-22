@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form
-	lessfiles="media://com_todo/css/backend.less||media://com_todo/css/backend.css"
+	lessfiles="media://com_todo/css/frontend.less||media://com_todo/css/frontend.css"
 	validate="true"
 >
 	<fieldset name="basic_configuration"
@@ -8,7 +8,7 @@
 		description="COM_TODO_ITEMS_GROUP_BASIC_DESC"
 		class="span12"
 	>
-		<field name="title" type="text"
+		<field name="title" type="Text"
 			class="inputbox"
 			label="COM_TODO_ITEMS_FIELD_TITLE"
 			labelclass="todo-label todo-label-main"
@@ -16,7 +16,7 @@
 			size="50"
 		 />
 		
-		<field name="due" type="calendar"
+		<field name="due" type="Calendar"
 			class="inputbox"
 			label="COM_TODO_ITEMS_FIELD_DUE"
 			labelclass="todo-label"
@@ -24,7 +24,7 @@
 			size="20"
 			default="NOW"
 		 />
-		<field name="enabled" type="list" label="JSTATUS"
+		<field name="enabled" type="List" label="JSTATUS"
 			labelclass="todo-label"
 			description="JFIELD_PUBLISHED_DESC" class="inputbox"
 			filter="intval" size="1" default="1"
@@ -39,7 +39,7 @@
 		description="COM_TODO_ITEMS_GROUP_DESCRIPTION_DESC"
 		class="span12"
 	>
-		<field name="description" type="editor"
+		<field name="description" type="Editor"
 			label=""
       emptylabel="true"
 			class="inputbox"

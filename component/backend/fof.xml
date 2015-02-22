@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fof>
 	<common>
+        <!-- Set up the namespace for concrete, specialised classes -->
         <container>
             <option name="componentNamespace"><![CDATA[Akeeba\Todo]]></option>
         </container>
-		<!-- Set the default view in both frontend and backend to "Items" -->
+
+        <!-- Set the default view in both frontend and backend to "Items" -->
 		<dispatcher>
 			<option name="defaultView">Items</option>
 		</dispatcher>
-		<!-- Enable filters in frontend and backend -->
+
+        <!-- Enable filters in frontend and backend -->
 		<model name="Items">
 			<behaviors merge="1">Filters</behaviors>
 		</model>
 	</common>
+
 	<frontend>
 		<!-- In the frontend we also want to only show our own items -->
 		<model name="Items">
-			<behaviors merge="1">Own</behaviors>
+			<behaviors merge="1">Own, Enabled, Ordered</behaviors>
 		</model>
+
 	</frontend>
 </fof>

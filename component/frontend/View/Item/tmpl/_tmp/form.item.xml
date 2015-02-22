@@ -4,20 +4,19 @@
 	type="read"
 >
 	<fieldset name="a_single_item" class="todo-item-container form-horizontal">
-		<field name="title" type="text"
-			label=""
+		<field name="title" type="Text"
+			label=" "
 			class="todo-title-field"
 			size="50"
 		 />
 		
-		<field name="due" type="duedate"
+		<field name="due" type="Date"
 			label="COM_TODO_ITEMS_FIELD_DUE"
 			labelclass="todo-field"
 			size="20"
-			default="NOW"
 		 />
-		<field name="description" type="editor"
-			label=""
+		<field name="description" type="Editor"
+			label=" "
 		/>
 	</fieldset>
 </form>

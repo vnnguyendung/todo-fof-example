@@ -14,3 +14,5 @@ table.adminlist tfoot td { padding-top: 30px; text-align: center }
 
 .todo-title-field { font-size: x-large; font-weight: bold; border-bottom: thin solid #ccc; display: block; }
 #description { margin: 1em; padding: 0 1em; border: thin solid #ccc; background-color: #f3ffff; border-radius: 5px; }
+
+#FOFHeaderContainer div.titleContainer { display: none; }
