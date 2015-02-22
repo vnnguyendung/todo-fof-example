@@ -30,7 +30,7 @@
                empty_replacement="(no title)"
                 />
 
-        <field name="due" type="Date"/>
+        <field name="due" type="DueDate"/>
 
         <field name="created_by" type="User" sortable="true" tdwidth="10%"/>
 
