@@ -3,6 +3,7 @@
 	<common>
         <!-- Set up the namespace for concrete, specialised classes -->
         <container>
+            <option name="factoryClass"><![CDATA[FOF30\Factory\MagicFactory]]></option>
             <option name="componentNamespace"><![CDATA[Akeeba\Todo]]></option>
         </container>
 
