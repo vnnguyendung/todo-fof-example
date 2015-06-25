@@ -14,7 +14,10 @@
 
         <!-- Enable filters in frontend and backend -->
 		<model name="Items">
-			<behaviors merge="1">Filters</behaviors>
+			<config>
+				<option name="contentType">com_todo.item</option>
+			</config>
+			<behaviors merge="1">Tags, Filters</behaviors>
 		</model>
 	</common>
 
