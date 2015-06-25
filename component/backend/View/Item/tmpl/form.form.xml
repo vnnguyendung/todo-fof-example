@@ -25,6 +25,11 @@
                size="20"
                default="NOW"
                 />
+
+        <field name="tags" type="tag"
+               multiple="multiple"
+                />
+
         <field name="enabled" type="Published"
                label="JSTATUS"
                description="JFIELD_PUBLISHED_DESC" />
