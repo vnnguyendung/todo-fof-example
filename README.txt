@@ -2,11 +2,11 @@ What is this?
 ================================================================================
 com_todo is a demo component for the FOF framework. Its purpose is to
 demonstrate how you can create a small, but fully functional, component for
-Joomla! 2.5+ with minimal code.
+Joomla! 3.2+ with minimal code.
 
 Who is it for?
 ================================================================================
-Developers who are interested in starting to learn how FOF works and use it in
+Developers who are interested in starting to learn how FOF3 works and use it in
 their projects.
 
 Can I have an installable package, pretty please?
@@ -35,9 +35,7 @@ phing
 cd ..
 
 You will find a com_todo-****.zip file inside the todo-fof-example/release directory.
-Awesome! You can now install it on your Joomla! 2.5 or later web site. Yes,
-com_todo is for Joomla! 2.5+ only even though FOF currently also supports
-Joomla! 1.5. Sorry, but Joomla! 1.5 is practically dead!
+Awesome! You can now install it on your Joomla! 3.2 or later web site.
 
 I found a bug / have a suggestion / whatever.
 ================================================================================
