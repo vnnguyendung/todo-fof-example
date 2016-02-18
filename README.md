@@ -11,4 +11,5 @@ See the [ROADMAP] (https://github.com/willfaulds/todo-fof-example/blob/with-fof-
 
 **[backend/Model/Item.php](https://github.com/willfaulds/todo-fof-example/blob/with-fof-3-extended/component/backend/Model/Item.php)**
 `DataModel` demos `setFieldnameAttribute` (processing form data before it is saved).
-WIP TreeModel (nested categories) implementation 
+
+*WIP* TreeModel (nested categories) implementation 
