@@ -2,6 +2,5 @@
 
 ## Version1
 * ~~add `Model/Item.php` - Demo Model with `setFieldnameAttribute`~~
-* add new `update.sql` install new column `author`
-* update `Item/tmpl/form.default` to show new column `author`
-* update `Model/Item.php` to edit `author`
+* add support for FOF3 TreeModel with categories.
+* add example of correct usage if `update.sql` installing new column to existing versions
