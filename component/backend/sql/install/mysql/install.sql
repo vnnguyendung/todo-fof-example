@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS `#__todo_categories` (
   `rgt` int NOT NULL,
   `hash` char(40) NOT NULL,
   `ordering` int(10) NOT NULL DEFAULT '0',
-  `asset_id` int(10) NOT NULL DEFAULT '0',
   `created_by` bigint(20) NOT NULL DEFAULT '0',
   `created_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified_by` bigint(20) NOT NULL DEFAULT '0',
