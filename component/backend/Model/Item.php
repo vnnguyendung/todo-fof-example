@@ -6,16 +6,16 @@
  */
  
  /**
- ===DOCUMENTAION=== 
- https://github.com/akeeba/fof/wiki/The-Model
- https://github.com/akeeba/fof/wiki/The-DataModel
- 
- https://github.com/akeeba/fof/wiki/Using-Joomla%21-plugins-to-handle-FOF-events
- 
- Tip: You can see all the events called by a FOF class, e.g. FOF30\Model\DataModel,
- by opening its code and searching for triggerEvent.
- Remember to also check its parent class, e.g. FOF30\Model\Model,
- in case some of the events are defined there.
+ * ===DOCUMENTAION=== 
+ * https://github.com/akeeba/fof/wiki/The-Model
+ * https://github.com/akeeba/fof/wiki/The-DataModel
+ * 
+ * https://github.com/akeeba/fof/wiki/Using-Joomla%21-plugins-to-handle-FOF-events
+ * 
+ * Tip: You can see all the events called by a FOF class, e.g. FOF30\Model\DataModel,
+ * by opening its code and searching for triggerEvent.
+ * Remember to also check its parent class, e.g. FOF30\Model\Model,
+ * in case some of the events are defined there.
  */
 
 namespace Akeeba\Todo\Admin\Model;
