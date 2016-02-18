@@ -25,7 +25,7 @@ class Item extends \FOF30\Model\DataModel
     // Model implementation goes here
     // i.e. getFieldnameAttribute, 
     
-    // Simple example that ammends FOF's default slug creatoin
+    // Simple example that ammends FOF's default slug creation
 	protected function setSlugAttribute($value)
 	{
 		$value = str_replace('-','_',$value);//this should replace - with _.
