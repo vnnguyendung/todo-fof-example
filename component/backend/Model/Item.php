@@ -22,14 +22,26 @@ namespace Akeeba\Todo\Admin\Model;
 
 class Item extends \FOF30\Model\DataModel
 {
-    // Model implementation goes here
-    // i.e. getFieldnameAttribute, 
+	// Model implementation goes here
+	// i.e. getFieldnameAttribute, 
     
-    // Simple example that ammends FOF's default slug creation
-	protected function setSlugAttribute($value)
+	// Simple example that ammends FOF default `slug` creation
+	protected function setSlugAttribute($value) //NB Fieldname must be CamelCase 
 	{
-		$value = str_replace('-','_',$value);//this should replace - with _.
+		$value = str_replace('-','_',$value); //this should replace the default slugs hyphens `-` with underscores `_`.
+		
+		return $value;
+	}
 	
+	// Simple example that sets the `description` field if empty 
+	protected function setDescriptionAttribute($value) //NB Fieldname must be CamelCase 
+	{
+		if($value == NULL)
+		{
+			$title = $this->getFieldValue('title');//NB Fieldname must be lowercase (as per XML)	
+			$value = 'Generated description about '.$title;
+		}
+		
 		return $value;
 	}
 }
