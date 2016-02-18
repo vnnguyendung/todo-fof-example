@@ -10,4 +10,4 @@ See the [ROADMAP] (https://github.com/willfaulds/todo-fof-example/blob/with-fof-
 ##Highlights
 
 **[backend/Model/Item.php](https://github.com/willfaulds/todo-fof-example/blob/with-fof-3-extended/component/backend/Model/Item.php)**
-Demos setFieldnameAttribute and processing data before it is saved.
+`DataModel` demos `setFieldnameAttribute` and processing data before it is saved.
