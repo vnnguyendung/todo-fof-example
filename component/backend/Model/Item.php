@@ -23,11 +23,13 @@ namespace Akeeba\Todo\Admin\Model;
 class Item extends \FOF30\Model\DataModel
 {
     // Model implementation goes here
-    // i.e. getFieldnameAttribute
+    // i.e. getFieldnameAttribute, 
     
-    // example for com_todo getTitleAttribute (title is a field used by the Item view)
-	protected function getTitleAttribute($value)
+    // Simple example that ammends FOF's default slug creatoin
+	protected function setSlugAttribute($value)
 	{
+		$value = str_replace('-','_',$value);//this should replace - with _.
+	
 		return $value;
 	}
 }
