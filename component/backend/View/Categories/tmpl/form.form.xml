@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form validate="true">
+  <fieldset name="scaffolding" label="COM_TODO_CATEGORIES_GROUP_BASIC">
+    <field name="title" type="Text" label="COM_TODO_CATEGORIES_TITLE_LBL" description="COM_TODO_CATEGORIES_TITLE_DESC"/>
+    <field name="slug" type="Text" label="COM_TODO_CATEGORIES_SLUG_LBL" description="COM_TODO_CATEGORIES_SLUG_DESC"/>
+    <field name="enabled" type="Published" label="COM_TODO_CATEGORIES_ENABLED_LBL" description="COM_TODO_CATEGORIES_ENABLED_DESC"/>
+    <field name="hash" type="Text" label="COM_TODO_CATEGORIES_HASH_LBL" description="COM_TODO_CATEGORIES_HASH_DESC"/>
+    <field name="lft" type="Model" model="Categories" key_field="todo_category_id" value_field="title" description="Need custom Fieldtype"/>
+    <field name="rgt" type="Model" model="Categories" key_field="todo_category_id" value_field="title" description="Need custom Fieldtype"/>
+  </fieldset>
+</form>
