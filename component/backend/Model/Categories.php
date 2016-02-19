@@ -90,4 +90,10 @@ class Categories extends \FOF30\Model\TreeModel
 	{
 		//same issues as onBeforeCreate but perhaps set an Update flag?
 	}
+	
+	/*protected function onAfterSave(&$data)
+	{
+		$nestedListArray = $this->getRoot()->getNestedList($column = 'title', $key = null, $seperator = '.');
+		dump($nestedListArray);
+	}*/
 }
