@@ -32,7 +32,7 @@ defined('_JEXEC') or die;
 /* Attributes-
 
 `model` (same as FOF30\Form\Field\Model)
-`key_field` (same as FOF30\Form\Field\Model) **NOT implemented
+`key_field` (same as FOF30\Form\Field\Model)
 */
 		
 class TreeSelect extends GenericList implements FieldInterface
@@ -87,7 +87,7 @@ class TreeSelect extends GenericList implements FieldInterface
 		}
 	
 		
-		$nestedListArray = $model->getRoot()->getNestedList($column = 'title', $key = null, $seperator = ' - ');
+		$nestedListArray = $model->getRoot()->getNestedList($column = 'title', $key, $seperator = ' - ');
 
 		static::$loadedOptions[$myFormKey] = $nestedListArray;
 
