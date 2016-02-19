@@ -33,6 +33,12 @@ defined('_JEXEC') or die;
 
 `model` (same as FOF30\Form\Field\Model)
 `key_field` (same as FOF30\Form\Field\Model)
+`apply_access` (same as FOF30\Form\Field\Model)
+
+`leaf_only` (disable all parent nodes)
+//$seperator 
+
+Ends with JFormFieldList (https://api.joomla.org/cms-3/classes/JFormFieldList.html)
 */
 		
 class TreeSelect extends GenericList implements FieldInterface
@@ -63,7 +69,10 @@ class TreeSelect extends GenericList implements FieldInterface
 		
 		// Initialize some field attributes.
 		$key             = $this->element['key_field'] ? (string) $this->element['key_field'] : 'value';
+		$applyAccess     = StringHelper::toBool($this->element['apply_access']);
 		$modelName       = (string) $this->element['model'];
+		$leafOnly       = (string) $this->element['leaf_only'];
+		$seperator       = ' - ';
 		
 		// Explode model name into component name and prefix
 		$componentName = $this->form->getContainer()->componentName;
@@ -87,9 +96,44 @@ class TreeSelect extends GenericList implements FieldInterface
 		}
 	
 		
-		$nestedListArray = $model->getRoot()->getNestedList($column = 'title', $key, $seperator = ' - ');
+		$nestedListArray = $model->getRoot()->getNestedList($column = 'title', $key, $seperator);
+		
+		$options = array();
+		
+		// Loop through the nodes.
+		if (!empty($nestedListArray))
+		{
+		
+			//we could calc the depth by counting seperators... this is not ideal
+			$lastDepth = 0;
+			$disabled = false;
+			
+			foreach ($nestedListArray as $nodeId => $nodeTitle)
+			{
+				if($leafOnly)
+				{
+					//****This logic does not work****
+					$depth = substr_count($optKey, $seperator);
+					if($depth>$lastDepth)
+					{
+					
+					}
+					$lastDepth = $depth;
+				}
+				
+				//we can rebuild the node's data and add in more options
+				$tmp = array(
+					'value'    => $nodeId,
+					'text'     => $nodeTitle,
+					'disable'  => $disabled
+				);
+				
+				// Add the option object to the result set.
+				$options[] = (object) $tmp;
+			}
+		}
 
-		static::$loadedOptions[$myFormKey] = $nestedListArray;
+		static::$loadedOptions[$myFormKey] = $options;
 
 		return static::$loadedOptions[$myFormKey];
 	}
