@@ -5,7 +5,7 @@
     <field name="slug" type="Text" label="COM_TODO_CATEGORIES_SLUG_LBL" description="COM_TODO_CATEGORIES_SLUG_DESC"/>
     <field name="enabled" type="Published" label="COM_TODO_CATEGORIES_ENABLED_LBL" description="COM_TODO_CATEGORIES_ENABLED_DESC"/>
     <field name="hash" type="Text" label="COM_TODO_CATEGORIES_HASH_LBL" description="COM_TODO_CATEGORIES_HASH_DESC"/>
-    <field name="lft" type="Model" model="Categories" key_field="todo_category_id" value_field="title" description="Need custom Fieldtype"/>
-    <field name="rgt" type="Model" model="Categories" key_field="todo_category_id" value_field="title" description="Need custom Fieldtype"/>
+    <field name="lft" type="Text" default="2" description="lft Need custom Fieldtype"/>
+    <field name="rgt" type="Text" default="3" description="rgt Need custom Fieldtype"/>
   </fieldset>
 </form>
