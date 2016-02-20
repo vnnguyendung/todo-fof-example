@@ -35,7 +35,7 @@ defined('_JEXEC') or die;
 `key_field` (same as FOF30\Form\Field\Model)
 `apply_access` (same as FOF30\Form\Field\Model)
 
-`leaf_only` (displayw but disable all parent nodes)
+`leaf_only` (display but disable all parent nodes)
 //$seperator 
 
 Ends with JFormFieldList (https://api.joomla.org/cms-3/classes/JFormFieldList.html)
@@ -53,7 +53,7 @@ class TreeSelect extends GenericList implements FieldInterface
 	public function __set($name, $value)
 	{
 		// *NB this function sets properties of the field NOT Model data
-		parent::__get($name, $value);
+		parent::__set($name, $value);
 	}
 	
 	/**

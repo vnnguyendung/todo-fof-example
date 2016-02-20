@@ -17,37 +17,50 @@
  * Remember to also check its parent class, e.g. FOF30\Model\Model,
  * in case some of the events are defined there.
  */
-
 namespace Akeeba\Todo\Admin\Model;
+
+use FOF30\Container\Container;
 
 class Categories extends \FOF30\Model\TreeModel
 {
+
+	/** @var  int|null  This node's parent's id */
+	protected $pNodeId = null;
+	
+	/**
+	 * Public constructor. Adds behaviours and sets up the behaviours and the relations
+	 *
+	 * @param   Container  $container
+	 * @param   array      $config
+	 */
+	public function __construct(Container $container, array $config = array())
+	{
+		parent::__construct($container, $config);
+
+		//add new knownField
+		$this->addKnownField('parent_id');
+	}
 	
 	// Model implementation goes here
 	// i.e. getFieldnameAttribute, 
-    protected function onAfterLoad(&$data)
-	{
-		//$this->addKnownField('position');
-		
-		//set the default to by the parent node?
-		//$this->getParent();
-		//$data->tree;
-	}
-	
-    // Add new node to TreeModel when created
+    	
+    // Add new node SPACE to TreeModel before the records are created
 	protected function onBeforeCreate(&$data)
 	{
-		
-		//onBefore seemed sensible but the TreeModel uses db queries so an item record must exist to manipulate the tree
-		parent::onBeforeCreate($data);
-		
-		// Item creation submission fails if no lft & rgt form values so cannot set defaults here
-		//$data->lft=2;
-		//$data->rgt=3;
-		
-		
+		// TreeModel uses db queries so an item record must exist to manipulate the tree
 		// A solution! Simply make space for the node ( see TreeModel->insertAsFirstChildOf() )
-
+		
+		$newPId = $this->input->getInt('parent_id');//not available via $data
+		$rootId = $this->getRoot()->getId();
+		if($newPId > $rootId)
+		{
+			$newPNode = $this->getNodeById($newPId);
+			
+			//Set `lft` & `rgt` to become first child of $newPNode
+			$data->lft = $newPNode->lft+1;
+			$data->rgt = $newPNode->lft+2;
+		}
+		
 		// lft insertion point
 		$insertLeft = $data->lft-1;
 		
@@ -88,28 +101,20 @@ class Categories extends \FOF30\Model\TreeModel
 		}
 	}
 	
-	//
-	protected function onAfterCreate(&$data)
-	{
-		//** onAfter an item record exists but TreeModel hasn't "made space" for it...
-	}
-	
 	// Move node when TreeModel is updated
 	protected function onBeforeUpdate(&$data)
 	{
-		//updating a single node's position (with children) within the tree
+		//updating a single node's position (with it's children) within the tree
 		//probably best to call TreeModel->makeFirstChildOf() or TreeModel->makeLastChildOf()
 		//allow selection of parent via a select list or js interactive (limited to current node) tree
 		
-		$this->addKnownField('position');
-		dump($data->position, 'position');
-		$newPId = $data->position;
+		$newPId = $this->input->getInt('parent_id');//not available via $data
+		//$newPId = $data->parent_id; //$data does not hold the addKnownField with this databaseDataToRecordData & recordDataToDatabaseData usage
 		
 		if($newPId)
 		{
-			$pNode = $this->getParent();
 			//check the node needs moving
-			if($pNode->getId() != $newPId)
+			if($this->getPId() != $newPId)
 			{
 				$newPNode = $this->getNodeById($newPId);
 				$this->makeFirstChildOf($newPNode);
@@ -124,5 +129,44 @@ class Categories extends \FOF30\Model\TreeModel
 	protected function getNodeById($id)
 	{
 		return $this->getClone()->reset()->find($id);
+	}
+	
+	protected function getPId()
+	{
+		if($this->getId())
+		{	
+			$this->pNodeId = $this->getParent()->getId();
+		}
+		return $this->pNodeId;
+	}
+	
+	public function databaseDataToRecordData()
+	{
+		foreach ($this->recordData as $name => $value)
+		{
+			$method = $this->container->inflector->camelize('get_' . $name . '_attribute');
+			if (method_exists($this, $method))
+			{
+				$this->recordData[$name] = $this->{$method}($value);
+			}
+		}
+		
+		$this->recordData['parent_id'] = $this->getPId();	
+	}
+	
+	public function recordDataToDatabaseData()
+	{
+		$copy = array_merge($this->recordData);
+		unset($copy['parent_id']);//remove `parent_id` as column doesn't exist
+		
+		foreach ($copy as $name => $value)
+		{
+			$method = $this->container->inflector->camelize('set_' . $name . '_attribute');
+			if (method_exists($this, $method))
+			{
+				$copy[$name] = $this->{$method}($value);
+			}
+		}
+		return $copy;
 	}
 }

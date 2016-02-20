@@ -16,6 +16,14 @@
                required="true"
                size="50"
                 />
+                
+                 <field name="slug" type="Text"
+               class="inputbox"
+               label="COM_TODO_ITEMS_FIELD_SLUG"
+               labelclass="todo-label todo-label-main"
+               readonly="true"
+               size="50"
+                />
 
         <field name="due" type="Calendar"
                class="inputbox"
