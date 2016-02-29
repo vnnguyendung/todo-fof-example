@@ -8,6 +8,7 @@
 ## FOF30\Model\TreeModel
 * ~~add support for TreeModel item creation with Categories (correctly nests data according to `lft` & `rgt` fields~~.
 * ~~added basic `TreeSelect` FOF30\Form\Field type~~.
-* extend featureset of `TreeSelect`
-* extend support for editing Categories position within TreeModel.
+* extend featureset of `TreeSelect` (only leaf node etc.)
+* ~~extend support for editing Categories position within TreeModel~~
+* write a custom Categories browse view renderer displaying the tree structure
 
