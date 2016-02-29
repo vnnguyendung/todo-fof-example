@@ -6,7 +6,12 @@ This branch `with-fof-3-extended` of `com_todo` is an extended version of the Ak
 
 The extended features aim to demonstrate features of FOF3 in simple (hopefully well) annoted examples.
 
-See the [ROADMAP] (https://github.com/willfaulds/todo-fof-example/blob/with-fof-3-extended/ROADMAP.md)
+
+##Could you contribute?
+
+If you're getting starting, or maybe you're a pro, with FOF or Joomla components why not add some real world code here. Help support the Joomla community and the development of FOF (the more it gets used the more likely its here to stay).
+
+See the [ROADMAP] (https://github.com/willfaulds/todo-fof-example/blob/with-fof-3-extended/ROADMAP.md) for ideas or save more abstract code snippets [here](https://github.com/willfaulds/FOF3-extras) 
 
 
 ##Highlights
