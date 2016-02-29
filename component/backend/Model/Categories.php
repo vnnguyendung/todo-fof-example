@@ -16,16 +16,16 @@
  * by opening its code and searching for triggerEvent.
  * Remember to also check its parent class, e.g. FOF30\Model\Model,
  * in case some of the events are defined there.
- */
+ */ 
 namespace Akeeba\Todo\Admin\Model;
 
 use FOF30\Container\Container;
 
 class Categories extends \FOF30\Model\TreeModel
 {
-
-	/** @var  int|null  This node's parent's id */
-	protected $pNodeId = null;
+	
+	/** @var  int|null  TreeModel the id of the parent node of ourselves */
+	protected $treeParentId = null;
 	
 	/**
 	 * Public constructor. Adds behaviours and sets up the behaviours and the relations
@@ -33,33 +33,48 @@ class Categories extends \FOF30\Model\TreeModel
 	 * @param   Container  $container
 	 * @param   array      $config
 	 */
-	public function __construct(Container $container, array $config = array())
-	{
+	public function __construct(Container $container = null, array $config = array())
+	{	
 		parent::__construct($container, $config);
-
-		//add new knownField
-		$this->addKnownField('parent_id');
+			
+		$this->addKnownField('parent_id', 0, 'int');
+		//$this->addSkipCheckField('parent_id');
 	}
 	
 	// Model implementation goes here
-	// i.e. getFieldnameAttribute, 
-    	
+	// i.e. getFieldnameAttribute,     
+	protected function onAfterLoad($result, &$keys)
+	{
+		if($result){
+			$pId = $this->getParentId();
+			if($pId>0){
+				$this->setFieldValue('parent_id', $pId);
+			}
+		}
+    }
+    
     // Add new node SPACE to TreeModel before the records are created
 	protected function onBeforeCreate(&$data)
 	{
 		// TreeModel uses db queries so an item record must exist to manipulate the tree
 		// A solution! Simply make space for the node ( see TreeModel->insertAsFirstChildOf() )
+
+		//new Parent node id / default to root
+		$newPId = $this->input->getInt('parent_id');//cannot access via $data (removed by recordDataToDatabaseData)
+		$rootNode = $this->getRoot();
+		$rootId = $rootNode->getId();
 		
-		$newPId = $this->input->getInt('parent_id');//not available via $data
-		$rootId = $this->getRoot()->getId();
 		if($newPId > $rootId)
 		{
 			$newPNode = $this->getNodeById($newPId);
-			
-			//Set `lft` & `rgt` to become first child of $newPNode
-			$data->lft = $newPNode->lft+1;
-			$data->rgt = $newPNode->lft+2;
 		}
+		else{
+			$newPNode = $rootNode;
+		}
+		
+		//Set `lft` & `rgt` to become first child of parent node
+		$data->lft = $newPNode->lft+1;
+		$data->rgt = $newPNode->lft+2;
 		
 		// lft insertion point
 		$insertLeft = $data->lft-1;
@@ -100,27 +115,46 @@ class Categories extends \FOF30\Model\TreeModel
 			throw $e;
 		}
 	}
-	
-	// Move node when TreeModel is updated
-	protected function onBeforeUpdate(&$data)
+    
+    protected function onBeforeSave(&$data)
 	{
 		//updating a single node's position (with it's children) within the tree
 		//probably best to call TreeModel->makeFirstChildOf() or TreeModel->makeLastChildOf()
-		//allow selection of parent via a select list or js interactive (limited to current node) tree
+		//allow selection of parent via a select list or js interactive tree (limit rearrange to current node)
 		
-		$newPId = $this->input->getInt('parent_id');//not available via $data
-		//$newPId = $data->parent_id; //$data does not hold the addKnownField with this databaseDataToRecordData & recordDataToDatabaseData usage
-		
-		if($newPId)
-		{
-			//check the node needs moving
-			if($this->getPId() != $newPId)
+		//REF: https://groups.google.com/forum/#!searchin/frameworkonframework/looping/frameworkonframework/tLdove-duWY/yA0dA6y4r5wJ
+		static $allowRecursion = true;
+
+		if($allowRecursion){
+			
+			//new Parent node id
+			$newPId = $data['parent_id'];
+			
+			$pId = $this->getParentId();
+
+			if($newPId >0 && $pId >0)
 			{
-				$newPNode = $this->getNodeById($newPId);
-				$this->makeFirstChildOf($newPNode);
+				//check the node needs moving
+				if($pId != $newPId && $allowRecursion)
+				{
+					$allowRecursion = false;
+			
+					$newPNode = $this->getNodeById($newPId);
+				
+					$this->makeFirstChildOf($newPNode);
+					
+					//Set `lft` & `rgt` so save doesn't overwrite them					
+					$this->recordData['lft'] = $data['lft'] = $this->lft;
+					$this->recordData['rgt'] = $data['rgt'] = $this->rgt;
+										
+					$updates = array(
+						'lft'		=> $this->lft,
+						'rgt' 		=> $this->rgt
+					);
+					$this->bind($updates);
+				}
 			}
 		}
-		
 		//a view would be possible for totally rearranging the TreeModel with js
 		//**However this must be limited to superadmin or always show ALL nodes to avoid errors
 		//this would simply rewrite all lft & rgt columns based on js tree (via json)
@@ -131,42 +165,29 @@ class Categories extends \FOF30\Model\TreeModel
 		return $this->getClone()->reset()->find($id);
 	}
 	
-	protected function getPId()
+	public function getParentId()
 	{
-		if($this->getId())
+		if(empty($this->treeParentId))
 		{	
-			$this->pNodeId = $this->getParent()->getId();
-		}
-		return $this->pNodeId;
-	}
-	
-	public function databaseDataToRecordData()
-	{
-		foreach ($this->recordData as $name => $value)
-		{
-			$method = $this->container->inflector->camelize('get_' . $name . '_attribute');
-			if (method_exists($this, $method))
+			if($this->getId())
 			{
-				$this->recordData[$name] = $this->{$method}($value);
+				$this->treeParentId = $this->getClone()->getParent()->getId();
 			}
 		}
 		
-		$this->recordData['parent_id'] = $this->getPId();	
+		return $this->treeParentId;
 	}
-	
-	public function recordDataToDatabaseData()
+    
+    //https://groups.google.com/forum/#!searchin/frameworkonframework/setfieldvalue/frameworkonframework/hwr0V1DLdsQ/RAo0etvoBgAJ
+    public function recordDataToDatabaseData()
 	{
-		$copy = array_merge($this->recordData);
-		unset($copy['parent_id']);//remove `parent_id` as column doesn't exist
-		
-		foreach ($copy as $name => $value)
-		{
-			$method = $this->container->inflector->camelize('set_' . $name . '_attribute');
-			if (method_exists($this, $method))
-			{
-				$copy[$name] = $this->{$method}($value);
-			}
-		}
-		return $copy;
-	}
+	   $copy = parent::recordDataToDatabaseData();
+   
+	   if (isset($copy['parent_id']))
+	   {
+		  unset ($copy['parent_id']);//remove `parent_id` as column doesn't actually exist
+	   }
+   
+	   return $copy;
+	}	
 }
