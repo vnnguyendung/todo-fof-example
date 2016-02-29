@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS `#__todo_items` (
   `todo_item_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `slug` varchar(50) NOT NULL,
+  `todo_category_id` bigint(20) unsigned,
   `description` mediumtext,
   `due` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `enabled` tinyint(3) NOT NULL DEFAULT '1',
