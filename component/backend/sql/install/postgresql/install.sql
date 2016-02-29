@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS "#__todo_items" (
   "due" timestamp without time zone DEFAULT "1970-01-01 00:00:00" NOT NULL,
   "enabled" smallint DEFAULT 1 NOT NULL,
   "ordering" bigint DEFAULT 0 NOT NULL,
+  "asset_id" bigint DEFAULT 0 NOT NULL,
   "created_by" bigint DEFAULT 0 NOT NULL,
   "created_on" timestamp without time zone DEFAULT "1970-01-01 00:00:00" NOT NULL,
   "modified_by" bigint DEFAULT 0 NOT NULL,
