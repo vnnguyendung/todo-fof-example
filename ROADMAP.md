@@ -3,6 +3,7 @@
 ## FOF3/Joomla component basics
 * ~~implement the FOF [XML database schema](https://github.com/akeeba/fof/wiki/The-XML-Database-Schema-Installer)~~
 * add basic custom FOF30\Form\Field type
+* fix/correctly setup Tags
 
 ## FOF30\Model
 * ~~demo FOF `setFieldnameAttribute()` see `Model/Item.php`~~
@@ -14,3 +15,8 @@
 * ~~extend support for editing Categories position within TreeModel~~
 * write a custom Categories browse view renderer (displays the tree structure of categories)
 
+## FOF30\TransparentAuthentication
+
+## Model relations
+
+## AJAX communication with a Model
