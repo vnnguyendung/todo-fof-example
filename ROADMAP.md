@@ -1,9 +1,11 @@
 # Roadmap
 
 ## FOF3/Joomla component basics
-* ~~add `Model/Item.php` - Demo Model with `setFieldnameAttribute`~~
 * ~~implement the FOF [XML database schema](https://github.com/akeeba/fof/wiki/The-XML-Database-Schema-Installer)~~
 * add basic custom FOF30\Form\Field type
+
+## FOF30\Model
+* ~~demo FOF `setFieldnameAttribute()` see `Model/Item.php`~~
 
 ## FOF30\Model\TreeModel
 * ~~add support for TreeModel item creation with Categories (correctly nests data according to `lft` & `rgt` fields~~.
