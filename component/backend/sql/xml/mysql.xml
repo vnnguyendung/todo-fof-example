@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+    <!-- Metadata -->
+    <meta>
+        <!-- Supported driver types -->
+        <drivers>
+            <driver>mysql</driver>
+            <driver>mysqli</driver>
+            <driver>pdomysql</driver>
+        </drivers>
+    </meta>
+
+    <!-- SQL commands to run on installation and update -->
+    <sql>
+        <action table="#__todo_items" canfail="0">
+            <condition type="missing" value="" />
+            <query><![CDATA[
+              CREATE TABLE `#__todo_items` (
+                `todo_item_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                `title` varchar(255) NOT NULL,
+                `slug` varchar(50) NOT NULL,
+                `todo_category_id` bigint(20) unsigned,
+                `description` mediumtext,
+                `due` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+                `enabled` tinyint(3) NOT NULL DEFAULT '1',
+                `ordering` int(10) NOT NULL DEFAULT '0',
+                `asset_id` int(10) NOT NULL DEFAULT '0',
+                `created_by` bigint(20) NOT NULL DEFAULT '0',
+                `created_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+                `modified_by` bigint(20) NOT NULL DEFAULT '0',
+                `modified_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+                `locked_by` bigint(20) NOT NULL DEFAULT '0',
+                `locked_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+                PRIMARY KEY (`todo_item_id`)
+              ) DEFAULT CHARSET=utf8;
+            ]]></query>
+        </action>
+
+        <action table="#__todo_categories" canfail="0">
+            <condition type="missing" value="" />
+            <query><![CDATA[
+              CREATE TABLE `#__todo_categories` (
+                `todo_category_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                `title` varchar(255) NOT NULL,
+                `slug` varchar(50) NOT NULL,
+                `enabled` tinyint(3) NOT NULL DEFAULT '1',
+                `lft` int NOT NULL,
+                `rgt` int NOT NULL,
+                `hash` char(40) NOT NULL,
+                `ordering` int(10) NOT NULL DEFAULT '0',
+                `created_by` bigint(20) NOT NULL DEFAULT '0',
+                `created_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+                `modified_by` bigint(20) NOT NULL DEFAULT '0',
+                `modified_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+                `locked_by` bigint(20) NOT NULL DEFAULT '0',
+                `locked_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+                PRIMARY KEY (`todo_category_id`),
+                KEY `idx_lft` (`lft`),
+                KEY `idx_rgt` (`rgt`),
+                KEY `idx_lft_rgt` (`lft`,`rgt`),
+                KEY `idx_hash` (`hash`)
+              ) DEFAULT CHARSET=utf8;
+            ]]></query>
+        </action>
+
+        <action table="#__todo_categories" canfail="1">
+            <condition type="equals" operator="not" value="1"><![CDATA[
+              SELECT COUNT(*) FROM `#__todo_categories` WHERE `todo_category_id` = 1;
+            ]]></condition>
+            <query><![CDATA[
+              INSERT INTO `#__todo_categories` (`title`, `slug`, `lft`, `rgt`, `hash`)
+              VALUES ('_root', '_root', 1, 2, 'cc6b63c91ffc56123f22b80205f24321cd1c9307');
+            ]]></query>
+        </action>
+
+	</sql>
+</schema>
