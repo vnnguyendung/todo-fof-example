@@ -26,8 +26,6 @@ defined('_JEXEC') or die;
  */
  
 // Basic & butchered version of FOF30\Form\Field\Model field to allow single item selection from the Tree
-// with some js this could set hidden `lft` & `rgt` fields
-// alternatively hidden static `lft`=2 & `rgt`=3 fields could be updated in the Model
 
 /* Attributes-
 
