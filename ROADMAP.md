@@ -2,7 +2,7 @@
 
 ## FOF3/Joomla component basics
 * ~~add `Model/Item.php` - Demo Model with `setFieldnameAttribute`~~
-* add example of correct usage of `update.sql` installing new column to preinstalled earlier versions of a component
+* ~~implement the XML database schema~~
 * add basic custom FOF30\Form\Field type
 
 ## FOF30\Model\TreeModel
@@ -10,5 +10,5 @@
 * ~~added basic `TreeSelect` FOF30\Form\Field type~~.
 * extend featureset of `TreeSelect` (only leaf node etc.)
 * ~~extend support for editing Categories position within TreeModel~~
-* write a custom Categories browse view renderer displaying the tree structure
+* write a custom Categories browse view renderer (displays the tree structure of categories)
 
