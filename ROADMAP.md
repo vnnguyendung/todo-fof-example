@@ -2,7 +2,7 @@
 
 ## FOF3/Joomla component basics
 * ~~add `Model/Item.php` - Demo Model with `setFieldnameAttribute`~~
-* ~~implement the XML database schema~~
+* ~~implement the FOF [XML database schema](https://github.com/akeeba/fof/wiki/The-XML-Database-Schema-Installer)~~
 * add basic custom FOF30\Form\Field type
 
 ## FOF30\Model\TreeModel
